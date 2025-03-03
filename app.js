@@ -38,4 +38,20 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
+// James added soem apis
+app.get('/', (req, res) => {
+  res.send('hello routing express')
+})
+
+app.post('/', (req, res) => {
+  res.send('hello POST routing express')
+})
+
+
+app.put('/abc', (req, res) => {
+  res.send('hello PUT  routing express')
+})
+
+
 module.exports = app;
