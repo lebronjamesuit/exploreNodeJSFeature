@@ -2,7 +2,16 @@
 
 const fs = require('node:fs')
 
-let  content = fs.readFileSync('./input.txt','utf-8')
-console.log(content)
+let contentAsync = fs.readFile('./input.txt', 'utf-8', (err, data)=> {
+    if(err){
+        return console.log('Err reading file', err);
+    }
+    console.log(data)
+    const textout = `this is the write message ${data}`
+    fs.writeFileSync('./output.txt', textout)
+});
 
-fs.writeFileSync('./output.txt','this is the write message')
+console.log('after asyn load file')
+
+
+
